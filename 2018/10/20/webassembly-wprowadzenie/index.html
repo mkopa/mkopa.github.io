@@ -7,13 +7,14 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Większość osób związanych z JavaScript zapewne słyszała o technologii zwanej WebAssembly. Pytając znajomych, większość odpowiadała, że będzie umożliwiał on pisanie stron internetowych w innych językac">
+<meta name="keywords" content="webassembly,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webassembly - wprowadzenie">
 <meta property="og:url" content="http://mkopa.github.io/2018/10/20/webassembly-wprowadzenie/index.html">
 <meta property="og:site_name" content="Marcin Kopa">
 <meta property="og:description" content="Większość osób związanych z JavaScript zapewne słyszała o technologii zwanej WebAssembly. Pytając znajomych, większość odpowiadała, że będzie umożliwiał on pisanie stron internetowych w innych językac">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-20T14:51:12.318Z">
+<meta property="og:updated_time" content="2019-03-21T06:54:40.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webassembly - wprowadzenie">
 <meta name="twitter:description" content="Większość osób związanych z JavaScript zapewne słyszała o technologii zwanej WebAssembly. Pytając znajomych, większość odpowiadała, że będzie umożliwiał on pisanie stron internetowych w innych językac">
@@ -128,24 +129,30 @@
       
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/webassembly/">webassembly</a>
+    </div>
+
 
     </div>
   </header>
   
 
   <div class="content" itemprop="articleBody">
-    <p>Większość osób związanych z JavaScript zapewne słyszała o technologii zwanej WebAssembly. Pytając znajomych, większość odpowiadała, że będzie umożliwiał on pisanie stron internetowych w innych językach niż JS oraz, że jest on duży szybszy (od JS).<br>W serii artukułów chciałbym wyjasnić czym jest, oraz jakie daje możliwości WebAssembly.</p>
+    <p>Większość osób związanych z JavaScript zapewne słyszała o technologii zwanej WebAssembly. Pytając znajomych, większość odpowiadała, że będzie umożliwiał on pisanie stron internetowych w innych językach niż JS oraz, że jest on duży szybszy (od JS).<br>W serii artukułów chciałbym wyjasnić czym jest, jakie daje możliwości, oraz jak używać WebAssembly.</p>
 <p>Aby w pełni zrozumieć temat, należy najpierw zająć się historią języka JavaScript. W roku 1995 powstała pierwsza implementacja JS w przegladarce Netscape. Język ten wprowadzał nową jakość w działaniu stron internetowych pozwalając na lepszą interakcję użytkownika z komputerem.<br>Język ten jest wykonywany przez interpreter. Oznacza to, że kod jest wykonywany “linia po linii” bezpośrednio z pliku źródłowego. W przeciwieństwie do języków kompilowanych ma tę zaletę, że bardzo szybko startuje. Wystarczy wczytać pierwszą linię kodu i program zaczyna działać. Ma to istotne znaczenie w przypadku stron internetowych, bo raczej trudno sobie wyobrazić, że po wejściu na stronę musimy poczekać kilka lub kilkanaście sekund, aż program się skompiluje.</p>
 <p>Dlaczego programy interpretowane są wolniejsze od kompilowanych?</p>
 <p>Komputer to bardzo pożyteczne urządzenie. Wystarczy powiedzieć mu co ma zrobić, a on to wykona z ogromną prędkością. Problem jest jednak w komunikacji. Komputer nie rozumiem ludzkiego języka, posługuje się swoim, zupełnie innym. Nawet nie chodzi o samą translację. Komputer “rozumuje” i komunikuje się w zupełnie inny sposób niż ludzie.</p>
 <p>Najważniejszą częścią każdego procesora jest ALU (Arythmetic Logic Unit - Jednostka Arytmetyczno Logiczna) oraz rejestry. ALU pozwala nam wykonywać przeróżne operacje matematyczne np. dodawanie i odejmowanie. Załóżmy, że w procesorze jest 10 rejestrów R1 - R10. ALU aby wykonać jakiegolwiek działanie, potrzebuje rozkazu, czyli informacji co ma zrobić. Przykładowy program może składać się z trzech rozkazów:</p>
-<ol>
+<ul>
 <li>Załaduj do rejestru R1 liczbę 7</li>
 <li>Załaduj do rejestru R2 liczbę 4</li>
 <li>Dodaj rejestr R1 z rejestrem R2, a wynik umieść w rejestrze R3</li>
-</ol>
+</ul>
 <p>Wynikiem tego programu będzie liczba 11 znajdująca się w rejestrze R3.</p>
 <p>Jest to język maszynowy procesora. Każdy rozkaz to ciąg zer i jedynek (1100010101100111). Aby prościej było zapisywać rozkazy (nie operować na ciągach zer i jedynek), powstał język Assembler. Upraszczając - każde polecenie w języku assemblera odpowiada jednemu rozkazowi procesora.</p>
+<p>W tym miejscu należy zaznaczyć, że Assembler nie jest uniwersalnym narzędziem. Każda rodzina procesorów posiada swój własny zestaw rozkazów, a co za tym idzie również swój assembler. Np. ‘x86, arm, mips’ to zupełnie różne architektury procesorów. Program napisany na jeden z nich z całą pewnością nie będzie działać na innym. </p>
 
   </div>
 </article>
@@ -209,7 +216,7 @@
         
         <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2018 Marcin Kopa
+    Copyright &copy; 2019 Marcin Kopa
   </div>
   <div class="footer-right">
     <nav>
